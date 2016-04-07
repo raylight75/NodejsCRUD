@@ -1,18 +1,18 @@
-# post-nodejs-mysql
+# Nodejs-mysql
 
 
-Para testar a aplicação, baixe o repositório:
+For testing copy repository:
 ```
-git clone https://github.com/nicholasess/post-nodejs-mysql
+git clone https://github.com/raylight75/NodejsCRUD
 ```
-Instale as dependências:
+Install dependecies:
 ```
 npm install
 ```
 
-Importe o arquivo lembrete.sql no seu banco de dados.
+Import products.sql.
 
-Troca os valores no arquivo app.js, o banco que importou o lembrete.sql você muda em database:
+Configure database:
 ```
 app.use(
   connection(mysql,{
@@ -24,20 +24,20 @@ app.use(
   },'request')
 );
 ```
-E rode o projeto:
+Root project:
 ```
 node bin/www
 ```
 
-Acesse a url:
+Access of url:
 [localhost:3000](http://localhost:3000)
 
-As rotas são essas:
+Routes:
 ```
-GET /lembretes -> todos os lembretes
-POST /lembretes -> cadastra os lembretes
+GET /articles -> get articles
+POST /articles -> update articles
 
-GET /lembrete/:id -> retorna o perfil do lembrete através do id
-PUT /lembrete/:id -> atualiza o lembrete através do id
-DELETE /lembrete/:id -> exclui o lembrete através do id
+GET /articles/:id -> get articles by id
+PUT /articles/:id -> update articles by id
+DELETE /articles/:id ->delete articles
 ```
