@@ -27,7 +27,7 @@ swig.setDefaults({cache: false});
 
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(cors());
 app.use(bodyParser.json());

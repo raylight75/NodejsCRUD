@@ -5,6 +5,7 @@ App.controller('ReadCtrl', function ($scope, Articles, $route) {
     $scope.notFound = false;
     Articles.read().then(function (data) {
         $scope.articles = data.data;
+        console.log(data.data);
         if (data.data.length == 0) {
             $scope.notFound = true;
         }
