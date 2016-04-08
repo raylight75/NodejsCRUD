@@ -1,6 +1,6 @@
 # Nodejs-mysql
 
-
+NodeJs app for CRUD with pagination and filters
 For testing copy repository:
 ```
 git clone https://github.com/raylight75/NodejsCRUD

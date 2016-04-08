@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
 var index = require('./routes/index');
-var connection  = require('express-myconnection');
+var connection = require('express-myconnection');
 var mysql = require('mysql');
 var app = express();
 var cors = require('cors');
@@ -21,7 +21,7 @@ app.set('views', __dirname + '/views');
 // that and use Express's caching instead, if you like:
 app.set('view cache', false);
 // To disable Swig's cache, do the following:
-swig.setDefaults({ cache: false });
+swig.setDefaults({cache: false});
 // NOTE: You should always cache templates in a production environment.
 // Don't leave both of these to `false` in production!
 
@@ -31,35 +31,35 @@ swig.setDefaults({ cache: false });
 app.use(logger('dev'));
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
-    connection(mysql,{
+    connection(mysql, {
         host: 'localhost',
         user: 'root',
-        password : '',
-        port : 3306, //port mysql
-        database:'api'
-    },'request')
+        password: '',
+        port: 3306, //port mysql
+        database: 'api'
+    }, 'request')
 );
 
 app.use('/', index);
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     req.app = app;
     next();
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.use(function (req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+    app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.json({
             message: err.message,
@@ -70,7 +70,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.json({
         message: err.message,

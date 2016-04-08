@@ -21,11 +21,11 @@ exports.create = function(req, res) {
  }
 
 
-exports.profile = function(req, res) {
+exports.edit = function(req, res) {
  	var id = req.params.id;
 
 	req.getConnection(function(err,connection){
-		connection.query('SELECT * FROM lembretes WHERE id = ?',[id],function(err,result){
+		connection.query('SELECT * FROM products WHERE id = ?',[id],function(err,result){
 			if(err) return res.status(400).json(err);
 
 			return res.status(200).json(result[0]);
@@ -38,7 +38,7 @@ exports.update = function(req, res) {
  		id 	   = req.params.id;
 
 	req.getConnection(function(err,connection){
-		connection.query('UPDATE lembretes SET ? WHERE id = ? ',[data, id],function(err,result){
+		connection.query('UPDATE products SET ? WHERE id = ? ',[data, id],function(err,result){
 			if(err) return res.status(400).json(err);
 
 			return res.status(200).json(result);
