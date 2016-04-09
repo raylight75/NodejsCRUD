@@ -1,7 +1,8 @@
 # Nodejs-mysql
 
-NodeJs app for CRUD with pagination and filters
-For testing copy repository:
+NodeJs for API api and AngularJs for CRUD with pagination and filters.
+Project use Sequelize with supports for MySQL.
+For testing, copy repository:
 ```
 git clone https://github.com/raylight75/NodejsCRUD
 ```
@@ -12,24 +13,27 @@ npm install
 
 Import products.sql.
 
-Configure database:
+Configure Sequelize database:
 ```
-app.use(
-  connection(mysql,{
+var sequelize = new Sequelize('api', 'name', 'password', {
+    define: {
+        timestamps: false//true for enable
+    },
     host: 'localhost',
-    user: 'root',
-    password : '123456',
-    port : 3306, //port mysql
-    database:'api'
-  },'request')
-);
+    dialect: 'mysql',
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    },
+});
 ```
 Root project:
 ```
 node bin/www
 ```
 
-Access of url:
+Access of API:
 [localhost:3000](http://localhost:3000)
 
 Routes:
