@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
 var index = require('./routes/index');
-var connection = require('express-myconnection');
+//var connection = require('express-myconnection');
 var mysql = require('mysql');
 var app = express();
 var cors = require('cors');
@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(
+/*app.use(
     connection(mysql, {
         host: 'localhost',
         user: 'root',
@@ -42,7 +42,7 @@ app.use(
         port: 3306, //port mysql
         database: 'api'
     }, 'request')
-);
+);*/
 
 app.use('/', index);
 
