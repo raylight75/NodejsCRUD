@@ -1,16 +1,5 @@
-var Sequelize = require('sequelize');
 var sequelize = require('./index');
-var Product = sequelize.define('products', {
-    name: {
-        type: Sequelize.STRING
-    },
-    quantity: {
-        type: Sequelize.INTEGER
-    },
-    price: {
-        type: Sequelize.INTEGER
-    }
-});
+var Product = sequelize.import(__dirname + "/product")
 
 exports.read = function (req, res) {
     Product.findAll({attributes: ['id', 'name', 'quantity', 'price']}).then(function (products, err) {

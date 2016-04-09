@@ -1,5 +1,5 @@
 var express = require('express');
-var Articles = require('../models/articles');
+var Crud = require('../models/productCrud');
 var router = express.Router();
 
 /* GET home page. */
@@ -12,14 +12,14 @@ router.get('/test', function (req, res, next) {
 });
 
 router.route('/articles')
-    .get(Articles.read)
-    .post(Articles.create);
+    .get(Crud.read)
+    .post(Crud.create);
 
 
 router.route('/articles/:id')
-    .get(Articles.edit)
-    .put(Articles.update)
-    .delete(Articles.delete);
+    .get(Crud.edit)
+    .put(Crud.update)
+    .delete(Crud.delete);
 
 
 module.exports = router;
