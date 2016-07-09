@@ -32,10 +32,11 @@ Root project:
 ```
 node bin/www
 ```
-Start API: type
-```
-nodemon
-```
+Starting App
+START APP type: nodemon or nodemon app.js in App directory.
+        - type: node app.js in App directory.
+       or type: node server.js for basic http request.
+
 Access of API:
 [localhost:3000](http://localhost:3000)
 
