@@ -1,3 +1,8 @@
+
+
+START APP type: nodemon in App directory
+
+
 db.seq.query('SELECT * FROM posts, users WHERE posts.user_id = users.id ').success(function(rows){
             res.json(rows);
         });
