@@ -32,7 +32,10 @@ Root project:
 ```
 node bin/www
 ```
-
+Start API: type
+```
+nodemon
+```
 Access of API:
 [localhost:3000](http://localhost:3000)
 
